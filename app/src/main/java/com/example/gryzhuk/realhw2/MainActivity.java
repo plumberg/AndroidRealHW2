@@ -13,7 +13,7 @@ import android.widget.Button;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-            Button b1;
+            private Button clickedButton;
             private Random mGenerator;
             private int mWinningNumber;
             private View mSB_container;
@@ -70,19 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkIfWinner(View view) {
 
-        b1 = findViewById(R.id.button1);
+        clickedButton = (Button) view;
 
 
         int n ;
 
 
 
-        n = Integer.parseInt(b1.getText().toString());
+        n = Integer.parseInt(clickedButton.getText().toString());
         n-=1;
         if (n==mWinningNumber){
             Snackbar.make(mSB_container, "Hoooray! Winner!", Snackbar.LENGTH_LONG).show();
         } else {
             Snackbar.make(mSB_container, "Oooops...", Snackbar.LENGTH_LONG).show();
         }
+
+
     }
 }
